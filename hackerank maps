@@ -1,0 +1,45 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <set>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+     
+    int Q;
+    cin>>Q;
+    map<string,int> s;
+    for (int i=0;i<Q;i++){
+        int n,x;
+        string t;
+        cin>>n;
+        if (n==1){
+            cin>>t>>x;
+            s[t]=s[t]+x;
+
+        }
+        else if(n==2){
+            cin>>t;
+            s.erase(t);
+        }
+        else if (n==3){
+            cin>>t;
+            map<string,int>::iterator itr=s.find(t);
+            if (itr==s.end()){
+                cout<<0<<endl;
+            }
+            else{
+                cout<<s[t]<<endl;
+            }
+        }
+    }
+    return 0;
+}  
+
+
+
+
