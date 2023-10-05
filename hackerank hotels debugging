@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    int a;
+    int cost = 0;
+    int bedroom, bathroom;
+    cin >> a;
+    string room_type = "";
+    for (int i = 0; i < a; i++)
+    {
+        cin >> room_type;
+        cin >> bedroom;
+        cin >> bathroom;
+        if (room_type == "standard")
+        {
+            cost += 50 *bedroom + 100 * bathroom;
+        }
+
+        if (room_type == "apartment")
+        {
+            cost += 50 *bedroom + 100 *bathroom + 100;
+        }
+    }
+
+    cout << cost;
+
+    return 0;
+}
