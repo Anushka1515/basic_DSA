@@ -1,0 +1,25 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int asciiSumS = 0;
+        int asciiSumT = 0;
+
+    
+        for (char c : s) {
+            asciiSumS += static_cast<int>(c);
+        }
+
+    
+        for (char c : t) {
+            asciiSumT += static_cast<int>(c);
+        }
+
+    
+        int addedLetterAsciiValue = asciiSumT - asciiSumS;
+
+    
+        char addedLetter = static_cast<char>(addedLetterAsciiValue);
+
+        return addedLetter;   
+    }
+};
