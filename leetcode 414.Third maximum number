@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        vector<int> unique;
+        unordered_set<int> s;
+        for(auto x:nums){
+            s.insert(x);
+        }
+        for(auto el:s){
+            unique.push_back(el);
+        }
+        
+        sort(unique.begin(),unique.end(),greater<int>());
+        
+        
+        if(unique.size()==0){
+            return 0;
+        }
+        if(unique.size()<3){
+            return unique[0];
+        }
+
+            return unique[2];
+        
+        
+    }
+};
