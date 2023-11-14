@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        int n=s.size();
+        unordered_map<char, int> H;
+        for (int i = 0; i < n; i = i + 1){
+            H[s[i]] = H[s[i]] + 1;
+            
+        }
+        for(int i=0;i<s.size();i++){
+            if(H[s[i]]==1) return i;
+        } 
+        return -1;    
+    }
+};
