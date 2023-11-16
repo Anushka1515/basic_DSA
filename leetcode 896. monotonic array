@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool isMonotonic(vector<int>& nums) {
+        vector <int> ans =  nums;
+        sort(nums.begin(),nums.end());
+        if(nums==ans){
+            return true;
+        }
+        sort(nums.begin(),nums.end(),greater<int>());
+        if(nums==ans){
+            return true;
+        }
+        return false;
+    }
+};
