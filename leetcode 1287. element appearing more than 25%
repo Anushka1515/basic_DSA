@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int findSpecialInteger(vector<int>& arr) {
+        
+        int mostFreq=0;
+        int ans=0;
+        int curCount=1;
+        for(int i=1;i<arr.size();i++){
+            if(arr[i]==arr[i-1]){
+                curCount++;
+            } else {
+                if(curCount>mostFreq){
+                    mostFreq=curCount;
+                    ans = arr[i-1];
+                }
+                curCount = 1;
+            }
+        }
+
+        if(curCount>mostFreq){
+            mostFreq=curCount;
+            ans = arr[arr.size()-1];
+        }
+
+         return ans;
+        
+    }
+};
