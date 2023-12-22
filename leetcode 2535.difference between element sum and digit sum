@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int differenceOfSum(vector<int>& nums) {
+        int dsum=0;
+        int elsum=0;
+        for(auto x:nums){
+            elsum=elsum+x;
+            int a;
+            while(x>0){
+                a=x%10;
+                dsum=dsum+a;
+                x=x/10;
+            }
+        }
+        if (dsum>elsum){
+            return dsum-elsum;
+        }
+        return elsum-dsum;
+        
+    }
+};
