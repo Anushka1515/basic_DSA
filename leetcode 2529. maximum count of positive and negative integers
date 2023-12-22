@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+        
+        int cneg=0;
+        int cpos=0;
+        for(auto x:nums){
+            if(x>0){
+                cpos=cpos+1;
+            }
+            if(x<0){
+                cneg=cneg+1;
+            }
+        }
+        if(cneg>cpos){
+            return cneg;
+        }
+        return cpos;
+        
+    }
+};
