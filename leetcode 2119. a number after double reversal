@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool isSameAfterReversals(int num) {
+        int r1=0;
+        int r3=num;
+        while(num>0){
+            r1=r1*10+(num%10);
+            num=num/10;
+
+        }
+        int r2=0;
+        while(r1>0){
+            r2=r2*10+(r1%10);
+            r1=r1/10;
+        }
+        
+        cout<<r2<<endl;
+        cout<<r3<<endl;
+        if(r3==r2){
+            return true;
+        }
+        return false;
+        
+    }
+};
