@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> separateDigits(vector<int>& nums) {
+        int a;
+        vector <int> ans;
+        stack <int> get;
+        for(auto x:nums){
+            while(x>0){
+                a=x%10;
+                get.push(a);
+                x=x/10;
+            }
+            while(!get.empty()){
+                ans.push_back(get.top());
+                get.pop();
+            }
+        }
+        return ans;        
+    }
+};
