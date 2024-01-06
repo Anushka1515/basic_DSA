@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int countElements(vector<int>& nums) {
+        sort(nums.begin(),nums.end(),greater<int>());
+        int c=0;
+        for(int x:nums){
+            if(x!=nums[0] && x!=nums[nums.size()-1]){
+                c=c+1;
+            }
+        }
+        return c;    
+    }
+};
