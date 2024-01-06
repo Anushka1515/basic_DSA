@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+        vector<vector<int>> ans;
+        int x=0;
+        while(x<matrix[0].size()){
+            vector<int> forming;
+            for(auto a:matrix){
+                forming.push_back(a[x]);
+
+
+            }
+            ans.push_back(forming);
+            x=x+1;
+
+        }
+        return ans;
+
+        
+    }
+};
