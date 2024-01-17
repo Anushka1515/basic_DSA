@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        unordered_map<int,int> hashmap;
+        int c=0;
+        for(int x:nums){
+            hashmap[x]++;
+        }
+        vector<int> ans;
+        for(auto x:hashmap){
+            ans.push_back(x.second);    
+        }
+        sort(ans.begin(),ans.end(),greater<int>());
+        int max=ans[0];
+        for(auto x:hashmap){
+            if(x.second==max){
+                c=c+1;
+            }
+
+        }
+        return (c*max);
+
+
+        
+    }
+};
