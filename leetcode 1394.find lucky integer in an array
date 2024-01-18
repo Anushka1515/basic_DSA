@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int findLucky(vector<int>& arr) {
+        unordered_map<int,int> hashmap;
+        vector<int> ans;
+        for(int x:arr){
+            hashmap[x]++;
+        }
+        for(auto a:hashmap){
+            if(a.first==a.second){
+                ans.push_back(a.first);
+            }
+        }
+        if(ans.size()==0){
+            return -1;
+        }
+        sort(ans.begin(),ans.end(),greater<int>());
+        return ans[0];
+    }
+};
