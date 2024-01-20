@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool areOccurrencesEqual(string s) {
+        unordered_map<char,int> t;
+        unordered_set<int> ans;
+        for(char x:s){
+            t[x]++;
+        }
+        for(auto x:t){
+            ans.insert(x.second);
+        }
+        if(ans.size()!=1){
+            return false;
+        }
+        return true;
+    }
+};
