@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        unordered_map<int,int> h;
+        for(int x:nums){
+            h[x]++;
+        }
+        for(auto x:h){
+            if(x.second==1){
+                return x.first;
+            }
+        }
+        return 0;
+    }
+};
