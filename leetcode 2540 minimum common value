@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int getCommon(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> commonElements(nums1.begin(), nums1.end());
+        int min = INT_MAX;
+
+        for (int j : nums2) {
+            if (commonElements.count(j) && j < min) {
+                min = j;
+            }
+        }
+
+        if (min == INT_MAX) {
+            return -1;
+        }
+        return min;
+    }
+};
