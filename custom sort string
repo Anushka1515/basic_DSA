@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        unordered_map<char, int> charCount;
+        for (char c : s) {
+            charCount[c]++;
+        }
+
+        sort(s.begin(), s.end(), [&](char a, char b) {
+            return order.find(a) < order.find(b);
+        });
+
+        return s;
+    }
+};
