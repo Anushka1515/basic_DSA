@@ -1,0 +1,16 @@
+class Solution {
+public:
+    string frequencySort(string s) {
+       unordered_map<char, int> hashmap;
+        
+        for (char x : s) {
+            hashmap[x]++;
+        }
+
+        sort(s.begin(), s.end(), [&](char a, char b) {
+            return hashmap[a] > hashmap[b] || (hashmap[a] == hashmap[b] && a < b);
+        });
+
+        return s;
+    }
+};
