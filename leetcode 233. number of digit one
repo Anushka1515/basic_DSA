@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int countDigitOne(int n) {
+        long long count = 0; 
+        long long base = 1; 
+        while (base <= n) {
+            long long currentDigit = (n / base) % 10; 
+            long long leftPart = n / (base * 10); 
+            long long rightPart = n % base; 
+            
+            if (currentDigit == 0) {
+                count += leftPart * base;
+            } else if (currentDigit == 1) {
+         
+                count += leftPart * base + rightPart + 1;
+            } else {
+                
+                count += (leftPart + 1) * base;
+            }
+            
+            base *= 10;
+        }
+        
+        return static_cast<int>(count);
+    }
+};
