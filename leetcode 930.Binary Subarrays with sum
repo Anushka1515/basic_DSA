@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int numSubarraysWithSum(vector<int>& nums, int goal) {
+        int count = 0;
+        unordered_map<int, int> sum_count; // stores the count of each sum encountered
+        int curr_sum = 0;
+        
+        sum_count[0] = 1; // Initialize with one entry to handle cases where the sum equals goal
+        
+        for (int num : nums) {
+            curr_sum += num;
+            int diff = curr_sum - goal;
+            if (sum_count.find(diff) != sum_count.end()) {
+                count += sum_count[diff];
+            }
+            sum_count[curr_sum]++;
+        }
+        
+        return count;
+    }
+};
