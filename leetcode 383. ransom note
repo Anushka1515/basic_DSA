@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        unordered_map<char,int> ran;
+        unordered_map<char,int> mag;
+        for(char x: ransomNote){
+            ran[x]++;
+        }
+        for(char x:magazine){
+            mag[x]++;
+        }
+        for(auto x:ran){
+            int c=0;
+            for(auto k:mag){
+                if(x.second<=k.second && x.first==k.first){
+                    c++;
+                }
+            }
+            if(c!=1){
+                return false;
+            }
+        }
+        return true;
+        
+    }
+};
