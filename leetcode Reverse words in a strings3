@@ -1,0 +1,30 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        istringstream iss(s);
+        string word, result;
+        bool firstWord = true;
+  
+        while (iss >> word) {
+     
+            reverseString(word);
+            
+            if (!firstWord) {
+                result += " "; 
+            }
+            result += word;
+            firstWord = false;
+        }
+        
+        return result;
+    }
+    private:
+    void reverseString(string& s) {
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            swap(s[left++], s[right--]);
+        }
+    }
+        
+
+};
