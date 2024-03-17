@@ -1,0 +1,47 @@
+class Solution {
+public:
+    vector<int> findSubstring(string s, vector<string>& words) {
+        string findw="";
+        for(string s:words){
+            findw+=s;
+        }
+        int l = words[0].length();
+        int l1 = words.size();
+        int ssize = s.size();
+        int n=findw.length();
+        unordered_map<string,int> k;
+            for(int i=0;i<l1;i++){
+                k[words[i]]++;
+            }
+        vector<int> ans;
+        string t;
+        sort(findw.begin(),findw.end());
+        for(int i=0;i<ssize-n+1 ;i++){
+            t=s.substr(i,n);
+            sort(t.begin(),t.end());
+            
+            if(t==findw){
+                string a=s.substr(i,n);
+                unordered_map<string,int> p;
+                for(int j=0;j<a.length();j+=l){
+                    string b=a.substr(j,l);
+                    p[b]++;
+                }
+                int c=0;
+                for(auto x: k){
+                    if(p[x.first]!=x.second){
+                        c++;
+                        break;
+                    }
+                }
+                if(c==0){
+                    ans.push_back(i);
+                }
+            }
+        }
+        return ans;  
+       
+    }
+    
+    
+};
