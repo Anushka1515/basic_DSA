@@ -1,0 +1,26 @@
+lass Solution {
+public:
+    int leastInterval(vector<char>& tasks, int n) {
+        unordered_map<char, int> taskCount;
+        for (char task : tasks)
+            taskCount[task]++;
+    
+        int maxFreq = 0; 
+        int numMaxFreq = 0;
+    
+    
+        for (auto it : taskCount) {
+            maxFreq = max(maxFreq, it.second);
+        }
+        for (auto it : taskCount) {
+            if (it.second == maxFreq)
+                numMaxFreq++;
+        }
+    
+    
+        int minIntervals = (maxFreq - 1) * (n + 1) + numMaxFreq;
+    
+    
+        return max((int)tasks.size(), minIntervals);
+    }
+};
