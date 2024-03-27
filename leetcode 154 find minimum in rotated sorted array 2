@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        set<int> s;
+        for(int x:nums){
+            s.insert(x);
+        }
+        int min=INT_MAX;
+        for(auto x:s){
+            if(x<min){
+                min=x;
+            }
+        }
+        return min;
+        
+    }
+};
