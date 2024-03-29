@@ -1,0 +1,37 @@
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, int k) {
+       int n = nums.size();
+        int maxElement = INT_MIN;
+        for (int num : nums) {
+            maxElement = max(maxElement, num);
+        }
+
+        long count = 0; 
+        int windowStart = 0;
+        int windowEnd = 0;
+        int maxCount = 0;
+
+        while (windowEnd < n) {
+            if (nums[windowEnd] == maxElement) {
+                maxCount++;
+            }
+
+         
+            while (maxCount >= k) {
+                count += n - windowEnd; 
+                if (nums[windowStart] == maxElement) {
+                    maxCount--;
+                }
+                windowStart++;
+            }
+
+            windowEnd++;
+        }
+
+        return count;
+        
+        
+        
+    }
+};
