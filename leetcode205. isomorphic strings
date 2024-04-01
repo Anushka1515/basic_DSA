@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        map<char,string> hashs;
+        map<char,string> hasht;
+        
+        for(int i=0;i<s.length();i++){
+            hashs[s[i]]+=to_string(i);
+        }
+        for(int i=0;i<t.length();i++){
+            hasht[t[i]]+=to_string(i);
+        }
+        for(int i=0;i<s.length();i++){
+            if(hashs[s[i]]!=hasht[t[i]]){
+                return false;
+            }
+        }
+        return true;
+        
+    }
+};
