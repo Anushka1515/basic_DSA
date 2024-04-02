@@ -1,0 +1,39 @@
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        string c="";
+        int t=0;
+        vector<string> words;
+        while(t<s.length()){
+            if(s[t]!=' '){
+                c+=s[t];
+            }
+            else{
+                words.push_back(c);
+                c="";
+                
+            }
+            t++;
+            
+        }
+        words.push_back(c);
+        if (pattern.size() != words.size())
+            return false;
+        map<string,string>hashw;
+        map<char,string> hashp;
+        for(int i=0;i<words.size();i++){
+            hashw[words[i]]+=to_string(i);
+        }
+        for(int i=0;i<pattern.length();i++){
+            hashp[pattern[i]]+=to_string(i);
+        }
+        for(int i=0;i<pattern.size();i++){
+            if(hashp[pattern[i]]!=hashw[words[i]]){
+                return false;
+            }
+        }
+        return true;
+        
+        
+    }
+};
