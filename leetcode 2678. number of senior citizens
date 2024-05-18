@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int countSeniors(vector<string>& details) {
+        int c=0;
+        for(string s:details){
+            int x=s[11]-'0';
+            int y=s[12]-'0';
+            if(x*10+y > 60){
+                c++;
+            }
+        }
+        return c;
+        
+    }
+};
