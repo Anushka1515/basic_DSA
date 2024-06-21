@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int maxDistance(vector<int>& position, int m) {
+        sort(position.begin(), position.end()); 
+        int n = position.size();
+        int left = 1, right = position[n - 1] - position[0];
+        int result = -1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (canPlaceBalls(position, n, m, mid)) {
+                result = mid; 
+                left = mid + 1;
+            } else {
+                right = mid - 1; 
+            }
+        }
+        return result;
+    }
+private:
+    bool canPlaceBalls(vector<int>& position, int n, int m, int min_dist) {
+        int last_position = position[0];
+        int count = 1;
+        for (int i = 1; i < n; ++i) {
+            if (position[i] - last_position >= min_dist) {
+                last_position = position[i];
+                count++;
+                if (count == m) {    
+                }
+            }
+        }
+        return false; 
+    }
+};
