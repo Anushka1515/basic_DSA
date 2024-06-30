@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int countLargestGroup(int n) {
+        unordered_map<int, int> h; 
+        int maxGroupSize = 0;     
+        auto digitSum = [](int num) {
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            return sum;
+        };
+
+        for (int i = 1; i <= n; ++i) {
+            int sum = digitSum(i);
+            h[sum]++;
+            if (h[sum] > maxGroupSize) {
+                maxGroupSize = h[sum];
+            }
+        }
+        int count = 0;
+        for (const auto& x : h) {
+            if (x.second == maxGroupSize) {
+                count++;
+            }
+        }
+
+        return count;
+
+    }
+};
