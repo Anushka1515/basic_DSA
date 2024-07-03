@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int numberOfSpecialChars(string word) {
+        unordered_set<char>s;
+        string uniqw = "";
+        unordered_map<char,int> hash;
+        int c=0;
+        for(char x:word){
+            s.insert(x);
+        }
+        for(auto x:s){
+            uniqw += x;
+        }
+        sort(uniqw.begin(),uniqw.end(),greater<int>());
+        for(char x:uniqw){
+            if(islower(x)){
+                hash[x]++;
+                
+            }
+            if(isupper(x)){
+                if(hash.find(tolower(x))!=hash.end()){
+                    c++;
+                }
+                
+            }
+        }
+        return c;  
+ 
+    }
+};
