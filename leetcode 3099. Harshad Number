@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int sumOfTheDigitsOfHarshadNumber(int x) {
+        int a = x;
+        int digsum = 0;
+        while(x>0){
+            digsum += x%10;
+            x/=10;
+        }
+        if(a%digsum == 0){
+            return digsum;
+        }
+        return -1;
+        
+    }
+};
