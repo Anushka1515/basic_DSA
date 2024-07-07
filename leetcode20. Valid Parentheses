@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> brackets;
+        for(char x : s) {
+            if (x == '{' || x == '(' || x == '[') {
+                brackets.push(x);
+            } else {
+                if (brackets.empty()) {
+                    return false; 
+                }
+                if ((x == '}' && brackets.top() == '{') ||
+                    (x == ')' && brackets.top() == '(') ||
+                    (x == ']' && brackets.top() == '[')) {
+                    brackets.pop();
+                } else {
+                    return false; 
+                }
+            }
+        }
+        return brackets.empty(); 
+        
+    }
+};
