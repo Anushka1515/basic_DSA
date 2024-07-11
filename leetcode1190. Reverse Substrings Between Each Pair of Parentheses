@@ -1,0 +1,34 @@
+class Solution {
+public:
+    string reverseParentheses(string s) {
+        stack<char> st;
+        for(char x:s){
+            if(x==')'){
+                string a="";
+                while(st.top()!='('){
+                    a+=st.top();
+                    st.pop();    
+                }
+                st.pop();
+                for(char k:a){
+                    st.push(k);
+                }
+            }
+            else{
+                st.push(x);
+            }
+        }
+        string ans="";
+        while(!st.empty()){
+            if(st.top()!= '(' || st.top()!=')'){
+                ans+=st.top();
+            }
+            st.pop();
+            
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+        
+        
+    }
+};
