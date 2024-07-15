@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int countCompleteSubarrays(vector<int>& nums) {
+        unordered_set<int> s;
+        for(int x:nums){
+            s.insert(x);
+        }
+        int discount = s.size();
+        int ans=0;
+        for(int i=0;i<nums.size();i++){
+            unordered_set<int>len;
+            for(int j=i;j<nums.size();j++){
+                len.insert(nums[j]);
+                 if(len.size()==discount){
+                ans++;
+                }
+            }
+            
+        }
+        return ans;
+    }
+};
