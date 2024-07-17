@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isGood(vector<int>& nums) {
+        int n = nums.size() - 1;
+        std::unordered_map<int, int> countMap;
+
+        for (int num : nums) {
+            countMap[num]++;
+        }
+        for (int i = 1; i <= n - 1; ++i) {
+            if (countMap[i] != 1) {
+                return false;
+            }
+        }
+
+        if (countMap[n] != 2) {
+            return false;
+        }
+
+        return true;
+        
+    }
+};
