@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> frequencySort(vector<int>& nums) {
+        map<int, int> hash;        
+        vector<int> ans;               
+        for (int x : nums) {            
+            hash[x]++;        
+        }                
+        sort(nums.begin(), nums.end(), [&hash](int a, int b) {            
+            if (hash[a] == hash[b]) {                
+                return a > b; 
+            }            
+            return hash[a] < hash[b]; 
+        });        
+        return nums;
+        
+    }
+};
