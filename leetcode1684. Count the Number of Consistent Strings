@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int countConsistentStrings(string allowed, vector<string>& words) {
+        int c=0;
+        unordered_map<char,int>hash1;
+        for(char x:allowed){
+            hash1[x]++;
+        }
+        for(string a:words){
+            unordered_map<char,int>hash2;
+            bool flag=true;
+            for(char x:a){
+                if(hash1.find(x)==hash1.end()){
+                    flag = false;
+                    
+                }
+            }
+            if(flag==true){
+                c++;
+            }
+        }
+        
+        return c;
+    }
+};
