@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isCovered(vector<vector<int>>& ranges, int left, int right) {
+        vector<bool>check(50,0);
+        for(int i=0;i<ranges.size();i++){
+                for(int k=ranges[i][0];k<=ranges[i][1];k++){
+                    check[k]=1;
+                }
+            
+        }
+        for(int l=left;l<=right;l++){
+            if(check[l]==0){
+                return false;
+            }
+        }
+    return true;
+    
+    }
+};
