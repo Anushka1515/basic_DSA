@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> occurrencesOfElement(vector<int>& nums, vector<int>& queries, int x) {
+        int c=1;
+        vector<int> ans;
+        unordered_map<int,int> hash;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==x){
+                hash[c]=i;
+                c++;
+            }
+        }
+        for(int x:queries){
+            if(hash.find(x)==hash.end()){
+                ans.push_back(-1);
+            }
+            else{
+                ans.push_back(hash[x]);
+            }
+        }
+        return ans;
+        
+    }
+};
