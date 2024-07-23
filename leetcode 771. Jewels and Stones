@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        unordered_map<char,int>hash;
+        int c=0;
+        for(char x:jewels){
+            hash[x]++;
+        }
+        for(char x:stones){
+            if(hash.find(x)!=hash.end()){
+                c++;
+            }
+        }
+        return c;
+    }
+};
