@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int secondHighest(string s) {
+        priority_queue<char> pq;
+        for(char x:s){
+            if(isdigit(x)){
+                if(pq.empty()){
+                    pq.push(x);
+                }
+                else if(pq.top()!=x){
+                pq.push(x);
+                }
+            }
+        }
+        if(pq.empty()){
+            return -1;
+        }
+        pq.pop();
+        if(pq.empty()){
+            return -1;
+        }
+        return pq.top()-'0';
+    }
+};
