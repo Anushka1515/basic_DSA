@@ -1,0 +1,16 @@
+class Solution {
+public:
+    double trimMean(vector<int>& arr) {
+        double ans = 0;
+        double sum=0;
+        sort(arr.begin(),arr.end());
+        double count = (0.05)*arr.size();
+        for(int i=0;i<arr.size();i++){
+            if(i>count-1 && i<arr.size()-count){
+                sum+=arr[i];
+            }
+        }
+        ans=sum/(arr.size()-(2*count));
+        return ans;
+    }
+};
