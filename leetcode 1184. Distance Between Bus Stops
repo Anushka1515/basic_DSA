@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
+        if (start > destination) {
+            swap(start, destination);
+        }
+        
+        int way1 = 0;
+        for (int i = start; i < destination; ++i) {
+            way1 += distance[i];
+        }
+   
+        int way2 = 0;
+        for (int i = destination; i != start; i = (i + 1) % distance.size()) {
+            way2 += distance[i];
+        }
+        
+        return min(way1, way2);
+    
+        
+        
+    }
+};
