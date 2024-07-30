@@ -1,0 +1,21 @@
+int countA=0;
+        int countB=0;
+        int sum=INT_MAX;
+
+        for(auto x:s){
+            if(x=='a'){
+                countA++;
+            }
+        }
+
+        for(auto x:s){
+            int c=countB;
+            if(x=='a'){
+                countA--;
+            }else{
+                countB++;
+            }
+            sum=min(sum,countA+c);
+        }
+
+        return sum;
