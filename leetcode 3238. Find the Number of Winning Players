@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int winningPlayerCount(int n, vector<vector<int>>& pick) {
+        unordered_map<string,int> hash;
+        unordered_set<int> me;
+        int count = 0;
+        for(int i=0;i<pick.size();i++){
+            string s = to_string(pick[i][0]) + to_string(pick[i][1]);
+            hash[s]++;
+        }
+        for(auto x:hash){
+            string a = x.first;
+
+
+            if(x.second > a[0]-'0'){
+                me.insert(a[0]-'0');
+            }
+        }
+        return me.size();
+    }
+};
