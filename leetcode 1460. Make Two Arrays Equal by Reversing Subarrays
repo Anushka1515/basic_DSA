@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool canBeEqual(vector<int>& target, vector<int>& arr) {
+      unordered_map <int,int> m;
+        for(auto x:arr){
+            m[x]++;
+        }
+        for(auto x:target){
+            m[x]--;
+        }
+
+        for(auto x:m){
+            if(x.second>0){
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
