@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<int,int> hash;
+        int count = 0;
+        int curr_sum = 0;
+        hash[0]=1;
+        for(int x:nums){
+            curr_sum += x;
+            int dif = curr_sum - k;
+            if(hash.find(dif) != hash.end()){
+                count += hash[dif];
+            }
+            hash[curr_sum]++;
+        }
+        return count;
+    }
+};
