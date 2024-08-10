@@ -1,0 +1,44 @@
+class Solution {
+public:
+    vector<string> uncommonFromSentences(string s1, string s2) {
+        unordered_map<string,int> hash1;
+        unordered_map<string,int> hash2;
+        vector<string> ans;
+        string s="";
+        for(char x:s1){
+            if(x==' '){
+                hash1[s]++;
+                s="";
+            }
+            else{
+                s+=x;
+            }
+            
+        }
+        hash1[s]++;
+        s="";
+        for(char x:s2){
+            if(x==' '){
+                hash2[s]++;
+                s="";
+            }
+            else{
+                s+=x;
+            }
+            
+        }
+        hash2[s]++;
+        for(auto x:hash1){
+            if(x.second==1 && hash2.find(x.first)==hash2.end()){
+                ans.push_back(x.first);
+            }
+        }
+        for(auto x:hash2){
+            if(x.second==1 && hash1.find(x.first)==hash1.end()){
+                ans.push_back(x.first);
+            }
+        }
+        return ans;
+        
+    }
+};
