@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string greatestLetter(string s) {
+        unordered_map<char,int> hash;
+        for (char x : s) {
+        hash[x]++;
+        }
+        string ans = "";
+        for (char x : s) {
+            if (isupper(x) && hash.find(tolower(x)) != hash.end()) {
+                if (ans.empty() || x > ans[0]) {
+                    ans = x;
+                }
+            }
+        }
+        return ans;
+        
+    }
+};
