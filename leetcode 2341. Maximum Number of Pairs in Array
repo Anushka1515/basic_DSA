@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> numberOfPairs(vector<int>& nums) {
+        unordered_map<int,int> hash;
+        vector<int> ans;
+        int count;
+        int left;
+        for(int i:nums){
+            hash[i]++;
+        }
+        for(auto x:hash){
+            if(x.second % 2 == 0){
+                count += x.second / 2;
+            }
+            else{
+                count += x.second / 2;
+                left += x.second % 2;
+            }
+        }
+        ans.push_back(count);
+        ans.push_back(left);
+        return ans;
+        
+        
+    }
+};
