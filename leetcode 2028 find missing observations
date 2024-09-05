@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
+        vector<int> ans;
+        int msum = 0;
+        for(int x:rolls){
+            msum += x;
+        }
+        int tsum = mean * (rolls.size()+n);
+        if(tsum <msum){
+            return ans;
+        }
+        int nsum = tsum - msum;
+        cout<<rolls.size()<<" "<<msum<<" "<<nsum<<" "<<tsum;
+        if(nsum>6*n || nsum<n){
+            return ans;
+        }
+        int val = nsum/n;
+        int a = n;
+        while(a>0){
+            ans.push_back(val);
+            a--;
+        }
+        if(nsum%n==0){
+            return ans;
+        }
+        int remain = nsum%n;
+        int start = 0;
+        while(remain != 0){
+            ans[start] = ans[start]+1;
+            remain--;
+            if(ans[start]==6){
+                start++;
+            }
+            
+        }
+        return ans;
+        
+    }
+};
