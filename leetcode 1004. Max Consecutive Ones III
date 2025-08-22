@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+        int start = 0;
+        int end = 0;
+        int ans = 0;
+        unordered_map<int,int> hash;
+        while(end<nums.size()){
+            hash[nums[end]]++;
+            if(hash.find(0)==hash.end() || hash[0]<=k){
+                ans = max(ans,end-start+1);
+            }
+            else{
+                hash[nums[start]]--;
+                if(hash[nums[start]]==0){
+                    hash.erase(nums[start]);
+                }
+                start++;
+            }
+            end++;
+        }
+        return ans;
+    }
+};
