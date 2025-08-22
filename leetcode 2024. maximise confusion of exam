@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int maxConsecutiveAnswers(string answerKey, int k) {
+        int start = 0;
+        int end = 0;
+        int maxfreq = 0;
+        int ans = 0;
+        unordered_map<char,int> hash;
+        while(end<answerKey.size()){
+            hash[answerKey[end]]++;
+            maxfreq = max(maxfreq, hash[answerKey[end]]);
+            if(end - start + 1 - maxfreq <= k){
+                ans = max(ans,end - start + 1);
+            }
+            else{
+                hash[answerKey[start]]--;
+                if(hash[answerKey[start]]==0){
+                    hash.erase(answerKey[start]);
+                }
+                start++;
+            }
+            end++;
+        }
+        return ans;
+    }
+};
